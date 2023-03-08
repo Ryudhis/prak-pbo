@@ -2,12 +2,12 @@
 #NIM    : 121140115
 #KELAS  : RB
 class AkunBank:
-    list_pelanggan = []
+    list_pelanggan = {}
     def __init__(self,no_pelanggan,nama_pelanggan,jumlah_saldo) -> None:
         self.__no_pelanggan = no_pelanggan
         self.__nama_pelanggan = nama_pelanggan
         self.__jumlah_saldo = jumlah_saldo
-        AkunBank.list_pelanggan.append([self.__no_pelanggan])
+        AkunBank.list_pelanggan.update({self.__no_pelanggan:self.__nama_pelanggan})
 
     def lihat_saldo(self):
         print(f"{self.__nama_pelanggan} memiliki saldo Rp.{self.__jumlah_saldo}")
@@ -28,21 +28,15 @@ class AkunBank:
         jumlah_transfer=int(input("Masukkan nominal yang ingin ditransfer : "))
         if jumlah_transfer <= self.__jumlah_saldo:
             no_rek = int(input("Masukkan no rekening tujuan : "))
-            if no_rek==Akun2.__no_pelanggan:
-                Akun2.__jumlah_saldo+=jumlah_transfer
-                Akun1.__jumlah_saldo-=jumlah_transfer
-                print(f"Transfer Rp.{jumlah_transfer} ke {Akun2.__nama_pelanggan} sukses!")
-                AkunBank.lihat_menu(self)
-            elif no_rek==Akun3.__no_pelanggan:
-                Akun3.__jumlah_saldo+=jumlah_transfer
-                Akun1.__jumlah_saldo=jumlah_transfer
-                print(f"Transfer Rp.{jumlah_transfer} ke {Akun3.__nama_pelanggan} sukses!")
+            if no_rek in self.list_pelanggan:
+                print(f"Transfer Rp.{jumlah_transfer} ke {self.list_pelanggan[no_rek]} sukses!")
                 AkunBank.lihat_menu(self)
             else:
                 print(f"No rekening tujuan tidak dikenal! Kembali ke menu utama...")
                 AkunBank.lihat_menu(self)
         else:
             print(f"Maaf, saldo anda tidak cukup. Kembali ke menu utama...")
+            AkunBank.lihat_menu(self)
 
 
     def lihat_menu(self):
