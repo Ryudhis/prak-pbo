@@ -45,7 +45,7 @@ Arya.ubah_alamat("Belwis")
 #Output setelah diubah
 Arya.biodata()
 
-#Jadi, perbedaan antara atribut public dan protected dari segi penggunaan hampir tidak ada, hanya beda dipenulisan saat pemanggilan variable saja
+#Jadi, perbedaan antara atribut public dan protected dari segi penggunaan hampir tidak ada, hanya beda di penulisan saat pemanggilan variable saja
 #Ditambahkan 1 underscore di depan untuk protected.
 #Sedangkan atribut private dapat berguna untuk mencegah adanya kesalahan pengubahan data, dan lain-lainnya. 
 #Dan secara penulisan atribut private ditambahkan 2 underscore di depan 
