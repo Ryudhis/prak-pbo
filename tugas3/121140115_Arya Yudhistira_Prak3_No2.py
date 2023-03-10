@@ -27,7 +27,7 @@ print(f"Nama Kampus : {Arya.nama_kampus}")
 print(f"Nama : {Arya.nama}")
 #Atribut protected dapat dipanggil di main program
 print(f"NIM : {Arya._nim}")
-#Namun jika atribut private __nama_rektor dipanggil di main program, akan terjadi erron. Misal print(Arya.__nama_rektor)
+#Namun jika atribut private __nama_rektor dipanggil di main program, akan terjadi error. Misal print(Arya.__nama_rektor)
 #Untuk mengatasi ini, kita dapat memanggilnya didalam classnya seperti pada fungsi def rektor
 Arya.rektor()
 #Begitu pula pada atribut private __alamat, kita tidak bisa memangilnya di main dengan Arya.__alamat
